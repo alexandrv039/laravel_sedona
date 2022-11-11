@@ -18,7 +18,8 @@ Route::get('/', function () {
 })->name('index');
 
 Route::get('/catalog', function () {
-    return view('catalog');
+    $products = \App\Models\Product::all();
+    return view('catalog', ['products' => $products]);
 })->name('catalog');
 
 Route::get('/about', function () {
