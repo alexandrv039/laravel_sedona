@@ -17,10 +17,7 @@ Route::get('/', function () {
     return view('index');
 })->name('index');
 
-Route::get('/catalog', function () {
-    $products = \App\Models\Product::all();
-    return view('catalog', ['products' => $products]);
-})->name('catalog');
+Route::get('/catalog', [\App\Http\Controllers\ProductController::class, 'index'])->name('catalog');
 
 Route::get('/about', function () {
     return view('about');
