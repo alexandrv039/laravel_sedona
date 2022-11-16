@@ -161,66 +161,18 @@
                 @foreach($products as $product)
 
                     <div class="product-card">
-                        <a class="product-card-link" href="product.html">
+                        <a class="product-card-link" href="{{route('products.show', ['id' => $product->id])}}">
                             <img class="product-card-image" src="{{$product->img}}" width="300" height="211" alt="">
                             <h3 class="product-card-title">{{$product->title}}</h3>
                         </a>
                         <p class="product-card-price">Гостиница от {{$product->price}} ₽</p>
-                        <a class="product-card-button button" href="#">Подробнее</a>
+                        <a class="product-card-button button" href="{{route('products.show', ['id' => $product->id])}}">Подробнее</a>
                         <a class="product-card-button button button-to-favorite" href="#">В избранное</a>
                         <img src="" alt="Рейтинг гостиницы" class="rating">
-                        <span>Рейтинг {{$product->raiting}}</span>
+                        <span>{{ (empty($product->rating) ? 'Нет оценок' : 'Рейтинг ' . $product->rating) }}</span>
                     </div>
 
                 @endforeach
-
-{{--                <div class="product-card">--}}
-{{--                    <a class="product-card-link" href="product.html">--}}
-{{--                        <img class="product-card-image" src="images/catalog/hotel-1.jpg" width="300" height="211" alt="">--}}
-{{--                        <h3 class="product-card-title">Amara Resort & Spa</h3>--}}
-{{--                    </a>--}}
-{{--                    <p class="product-card-price">Гостиница от 4000 ₽</p>--}}
-{{--                    <a class="product-card-button button" href="#">Подробнее</a>--}}
-{{--                    <a class="product-card-button button button-to-favorite" href="#">В избранное</a>--}}
-{{--                    <img src="" alt="Рейтинг гостиницы" class="rating">--}}
-{{--                    <span>Рейтинг 8,5</span>--}}
-{{--                </div>--}}
-
-{{--                <div class="product-card">--}}
-{{--                    <a class="product-card-link" href="product.html">--}}
-{{--                        <img class="product-card-image" src="images/catalog/hotel-2.jpg" width="300" height="211" alt="">--}}
-{{--                        <h3 class="product-card-title">Villas at Poco Diablo</h3>--}}
-{{--                    </a>--}}
-{{--                    <p class="product-card-price">Гостиница от 5000 ₽</p>--}}
-{{--                    <a class="product-card-button button" href="#">Подробнее</a>--}}
-{{--                    <a class="product-card-button button button-in-favorite" href="#">В избранном</a>--}}
-{{--                    <img src="" alt="Рейтинг гостиницы" class="rating">--}}
-{{--                    <span>Рейтинг 9,2</span>--}}
-{{--                </div>--}}
-
-{{--                <div class="product-card">--}}
-{{--                    <a class="product-card-link" href="product.html">--}}
-{{--                        <img class="product-card-image" src="images/catalog/hotel-3.jpg" width="300" height="211" alt="">--}}
-{{--                        <h3 class="product-card-title">Desert Quail Inn</h3>--}}
-{{--                    </a>--}}
-{{--                    <p class="product-card-price">Гостиница от 2500 ₽</p>--}}
-{{--                    <a class="product-card-button button" href="#">Подробнее</a>--}}
-{{--                    <a class="product-card-button button button-to-favorite" href="#">В избранное</a>--}}
-{{--                    <img src="" alt="Рейтинг гостиницы" class="rating">--}}
-{{--                    <span>Рейтинг 6,9</span>--}}
-{{--                </div>--}}
-
-{{--                <div class="product-card">--}}
-{{--                    <a class="product-card-link" href="product.html">--}}
-{{--                        <img class="product-card-image" src="images/catalog/hotel-4.jpg" width="300" height="211" alt="">--}}
-{{--                        <h3 class="product-card-title">GreenTree Inn</h3>--}}
-{{--                    </a>--}}
-{{--                    <p class="product-card-price">Гостиница от 1500 ₽</p>--}}
-{{--                    <a class="product-card-button button" href="#">Подробнее</a>--}}
-{{--                    <a class="product-card-button button button-to-favorite" href="#">В избранное</a>--}}
-{{--                    <img src="" alt="Рейтинг гостиницы" class="rating">--}}
-{{--                    <span>Рейтинг 5,0</span>--}}
-{{--                </div>--}}
 
             </div>
 

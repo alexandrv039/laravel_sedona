@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -11,5 +12,11 @@ class ProductController extends Controller
     {
         $products = \App\Models\Product::all();
         return view('catalog', ['products' => $products]);
+    }
+
+    public function show($id)
+    {
+        $product = Product::query()->findOrFail($id);
+        dd($product);
     }
 }
