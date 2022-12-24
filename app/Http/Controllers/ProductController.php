@@ -3,14 +3,28 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
 
-    public function index()
+    /**
+     * @param Request $request
+     * @return Application|Factory|View
+     */
+    public function index(Request $request)
     {
-        $products = \App\Models\Product::all();
+        $query = DB::table('products');
+        $query->when($request->get('type'), function (Builder $query, $type) {
+            $query->where('type', $type);
+        });
+        $products = $query->get();
         return view('catalog', ['products' => $products]);
     }
 
