@@ -14,12 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('index', ['projectTitle' => 'Седона']);
 })->name('index');
 
-Route::get('/catalog', [\App\Http\Controllers\ProductController::class, 'index'])->name('catalog');
-
-Route::get('/products/{id}', [\App\Http\Controllers\ProductController::class, 'show'])->name('products.show');
+//Route::get('/catalog', [\App\Http\Controllers\ProductController::class, 'index'])->name('catalog');
+//Route::get('/products/{id}', [\App\Http\Controllers\ProductController::class, 'show'])->name('products.show');
 
 Route::get('/about', function () {
     return view('about');
